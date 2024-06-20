@@ -3,7 +3,6 @@ package org.example;
 import io.qameta.allure.Step;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
 

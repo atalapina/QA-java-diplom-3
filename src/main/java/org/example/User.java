@@ -19,7 +19,7 @@ public class User {
     }
     public static User random() {
         return new User( RandomStringUtils.randomAlphabetic(5, 15)+"@yandex.ru" ,
-                RandomStringUtils.randomAlphabetic(5, 15), "Sparrow");
+                RandomStringUtils.randomAlphabetic(6, 15), "Sparrow");
     }
     public void setEmail(String email) {
         this.email = email;

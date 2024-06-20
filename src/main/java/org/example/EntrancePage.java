@@ -3,7 +3,6 @@ package org.example;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class EntrancePage extends BasePage {
     public EntrancePage(WebDriver driver) {
@@ -48,8 +47,9 @@ public class EntrancePage extends BasePage {
         return this.setEmail(user.getEmail()).setPassword(user.getPassword());
     }
     @Step("Нажать на восстановить Выход")
-    public void WaitEntranceButton() {
+    public EntrancePage WaitEntranceButton() {
         getElement(entranceButton);
+        return this;
     }
 
     @Step("Нажать на Восстановить пароль")

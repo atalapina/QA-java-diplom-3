@@ -1,6 +1,6 @@
 package org.example;
 
-public enum TransitionType {
+public enum IngredientTabType {
     BUN,
     SAUCE,
     FILLING

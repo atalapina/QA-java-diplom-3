@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
-import java.util.List;
 
 public abstract class BasePage {
 
@@ -24,11 +23,5 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(selector));
         return driver.findElement(selector);
     }
-    protected WebElement getElementForClick(By selector){
-        wait.until(ExpectedConditions.presenceOfElementLocated(selector));
-        wait.until(ExpectedConditions.elementToBeClickable(selector));
-        return driver.findElement(selector);
-    }
-
 
 }

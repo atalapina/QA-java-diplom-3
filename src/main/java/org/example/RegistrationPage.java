@@ -51,8 +51,9 @@ public class RegistrationPage extends BasePage{
         return this.setName(user.getName()).setEmail(user.getEmail()).setPassword(user.getPassword());
     }
     @Step("Ожидание кнопки Входа")
-    public void WaitEntranceButton() {
+    public RegistrationPage WaitEntranceButton() {
         getElement(entranceButton);
+        return this;
     }
 
 }

@@ -25,32 +25,29 @@ public class RegistrationTest extends BaseTest {
     @Test
     public void registration() {
 
-        HeadPage headPage = new HeadPage(driver);
-
-        EntrancePage entrancePage = headPage.clickAccountButton(accountButtonType);
-
-        RegistrationPage registrationPage = entrancePage.clickRegistrationButton();
-
-        entrancePage = registrationPage.setCredentials(user).clickRegistrationButton();
-
-        entrancePage.WaitEntranceButton();
-
-        headPage = entrancePage.setCredentials(user).clickEntranceButton();
+        HeadPage headPage = new HeadPage(driver)
+                .clickAccountButton(accountButtonType)
+                .clickRegistrationButton()
+                .setCredentials(user)
+                .clickRegistrationButton()
+                .WaitEntranceButton()
+                .setCredentials(user)
+                .clickEntranceButton();
 
         assert headPage.getOrderButton().isEnabled();
     }
+
     @Test
     public void registrationFailed() {
 
-        HeadPage headPage = new HeadPage(super.driver);
+        user.setPassword(user.getPassword().substring(0, 5));
 
-        EntrancePage entrancePage = headPage.clickAccountButton(accountButtonType);
+        var registrationPage = new HeadPage(super.driver)
+                .clickAccountButton(accountButtonType)
+                .clickRegistrationButton()
+                .setCredentials(user);
 
-        user.setPassword(user.getPassword().substring(0,5));
-
-        RegistrationPage registrationPage = entrancePage.clickRegistrationButton();
-
-        registrationPage.setCredentials(user).clickRegistrationButton();
+        registrationPage.clickRegistrationButton();
 
         assert registrationPage.getErrorText().equals("Некорректный пароль");
     }

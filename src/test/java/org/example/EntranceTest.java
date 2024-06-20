@@ -31,40 +31,33 @@ public class EntranceTest extends BaseTest {
 
     @Test
     public void loginWithLoginAccountButton() {
-        HeadPage headPage = new HeadPage(driver);
-
-        EntrancePage entrancePage = headPage.clickAccountButton(AccountButtonType.LOGIN);
-
-        entrancePage.setCredentials(user).clickEntranceButton();
+        HeadPage headPage = new HeadPage(driver)
+                .clickAccountButton(AccountButtonType.LOGIN)
+                .setCredentials(user)
+                .clickEntranceButton();
 
         assert headPage.getOrderButton().isEnabled();
     }
     @Test
     public void loginWithPersonalAccountButton() {
-        HeadPage headPage = new HeadPage(driver);
-
-        EntrancePage entrancePage = headPage.clickAccountButton(AccountButtonType.PERSONAL);
-
-        entrancePage.setCredentials(user).clickEntranceButton();
+        HeadPage headPage = new HeadPage(driver)
+                .clickAccountButton(AccountButtonType.PERSONAL)
+                .setCredentials(user)
+                .clickEntranceButton();
 
         assert headPage.getOrderButton().isEnabled();
     }
 
     @Test
     public void loginWithEntranceButtonFromRegistration() {
-        HeadPage headPage = new HeadPage(driver);
-
-        EntrancePage entrancePage = headPage.clickAccountButton(AccountButtonType.PERSONAL);
-
-        RegistrationPage registrationPage = entrancePage.clickRegistrationButton();
-
-        registrationPage.WaitEntranceButton();
-
-        entrancePage = registrationPage.clickEntranceButton();
-
-        entrancePage.WaitEntranceButton();
-
-        entrancePage.setCredentials(user).clickEntranceButton();
+        HeadPage headPage = new HeadPage(driver)
+                .clickAccountButton(AccountButtonType.PERSONAL)
+                .clickRegistrationButton()
+                .WaitEntranceButton()
+                .clickEntranceButton()
+                .WaitEntranceButton()
+                .setCredentials(user)
+                .clickEntranceButton();
 
         assert headPage.getOrderButton().isEnabled();
     }
@@ -77,6 +70,6 @@ public class EntranceTest extends BaseTest {
                 .setCredentials(user)
                 .clickEntranceButton();
 
-        assert headPage.getOrderButton1().isEnabled();
+        assert headPage.getOrderButton().isEnabled();
     }
 }
